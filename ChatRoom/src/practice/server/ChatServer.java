@@ -30,9 +30,12 @@ public class ChatServer {
         }
     }
 
-    public void broadcastMessage(String message) {
+    public void broadcastMessage(String id, String message) {
         for(ClientHandler client : clients) {
-            client.sendMessage(message);
+            // Check if me, not send to me
+            if (!client.getId().equals(id))      {
+                client.sendMessage(id + ": " + message);
+            }
         }
     }
 }

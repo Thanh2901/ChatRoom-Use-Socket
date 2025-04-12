@@ -27,6 +27,7 @@ public class ClientListener implements Runnable{
             int bytesRead;
             while((bytesRead = input.read(buffer)) != -1) {
                 String message = new String(buffer, 0, bytesRead);
+                System.out.println(message);
             }
         } catch (Exception e) {
             e.printStackTrace();

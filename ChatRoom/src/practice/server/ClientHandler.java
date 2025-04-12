@@ -32,7 +32,7 @@ public class ClientHandler implements Runnable{
                 String message = new String(buffer, 0, bytesRead);
                 System.out.println(message);
                 // Send for all clients
-                chatServer.broadcastMessage(this.id + ": " + message);
+                chatServer.broadcastMessage(this.id , message);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,5 +45,13 @@ public class ClientHandler implements Runnable{
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
